@@ -112,6 +112,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
             closeLevelUpModal
         }}
         >
+
             {children}
             {isLevelUpModalOpen && <LevelUpModal />}
 
