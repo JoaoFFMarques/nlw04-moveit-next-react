@@ -7,13 +7,15 @@
     left: 0;
     right: 0;
 
-    display: grid;    
+    display: grid;
+    align-items: center;    
     grid-template-columns: 1fr 1fr;
 }
 .loginBigLogo{
     position: relative;
-    margin-top: 111px;
+    align-self: center;
     margin-left: 30px;
+    bottom: 50px;
 }
 
 .loginBigLogo img{
@@ -133,7 +135,13 @@
     background-color: var(--blue-dark);
 
     border-radius: 5px;
-    border: transparent;
+    border: 0;
+}
+
+.loginBox button:focus{
+    border: 0;
+    outline: none;
+    background-color: var(--green);
 }
 
 .loginBox button div{

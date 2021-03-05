@@ -1,0 +1,41 @@
+.logoutIcon{
+    height: 24px;
+    width: 15px;
+
+    border-left: 3px solid var(--text);
+    border-top: 3px solid var(--text);
+    border-bottom: 3px solid var(--text);
+    
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.logoutIconArrow{
+    position: relative;
+    left: 5px;
+    height: 10px;
+    width: 12px;
+
+    border-top-left-radius: 3px;    
+    border-bottom-left-radius: 3px;
+
+    background-color: var(--text);
+}
+
+.logoutIconArrow::after{
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: -7px;
+
+    height: 24px;
+    width: 10px;
+
+    background-color: var(--text);
+    clip-path: polygon(0 0, 0% 100%, 100% 50%);
+
+}

@@ -1,0 +1,120 @@
+.sideBarContainer{
+    width: 114px;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    
+    overflow-x: hidden;
+    transition: 0.5s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, var(--white) 100%) center;
+}
+
+
+.siderBarOpenCloseButton{
+    position: absolute;    
+    top: 32px;
+    left: 30px;
+
+    background-color: transparent;
+    border: 0;
+}
+
+.siderBarOpenCloseButton:focus{
+    outline: none;
+    border: 0;
+}
+
+.sideBarLogo{
+    position: relative;
+    top: 0px;
+}
+
+.sideBarHome, .sideBarRank{
+    position: absolute;
+    width: 72px;
+    height: 56px;
+    left: 1px;
+
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas:
+    "a b"
+    "a b";
+
+    align-items: center;
+    border: 0;
+    background-color: transparent;
+}
+
+.sideBarHome:focus, .sideBarRank:focus{
+    outline: none;
+    border-left: 7px solid var(--blue);
+    border-radius: 7px;
+
+}
+
+.sideBarHome:focus div,
+.sideBarHome:focus div:last-child{
+    border-color: var(--blue);
+}
+
+.sideBarHome:focus div:first-child::after,
+.sideBarHome:focus div:first-child::before{
+    background-color: var(--blue);
+}
+
+.sideBarRank:focus div{
+    border-color: var(--blue);
+}
+
+.sideBarRank:focus div div,
+.sideBarRank:focus div div:last-child::before,
+.sideBarRank:focus div div:first-child::after{
+    background-color: var(--blue);
+}
+
+.sideBarHome div, .sideBarRank div{    
+  grid-area: b;
+}
+
+.sideBarHome{    
+    top: 40%;
+}
+
+.sideBarRank{
+    top: 50%;
+}
+
+.sideBarLogout{
+    position: absolute;
+    bottom: 10%;
+    left: 50px;
+
+    
+    border: 0;
+    
+    background-color: transparent;
+}
+
+
+
+.sideBarLogout:focus{
+    outline: none;
+    border: 0;
+}
+
+.sideBarLogout:focus div{
+    border-color: var(--blue);
+}
+
+.sideBarLogout:focus div div,
+.sideBarLogout:focus div div:first-child::after{
+    background-color: var(--blue);
+}

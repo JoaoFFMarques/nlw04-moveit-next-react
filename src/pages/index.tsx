@@ -6,12 +6,19 @@ import { Countdown } from '../components/Countdown';
 
 import { ExperienceBar } from "../components/ExperienceBar";
 import { Profile } from '../components/Profile';
+import { LeaderBoard } from '../components/LeaderBoard';
 
 import { ChallengesProvider } from '../context/ChallengesContext';
 import { CountdownProvider } from '../context/CountdownContext';
 
+import { SideBar } from '../components/SideBar';
+import { useSession } from 'next-auth/client';
 
 import styles from '../styles/pages/Home.module.css';
+import Login from './login';
+import { SideBarContext, SideBarProvider } from '../context/SideBarContext';
+import { useContext } from 'react';
+
 
 interface HomeProps {
   level: number;
@@ -20,36 +27,55 @@ interface HomeProps {
 }
 
 export default function Home(props: HomeProps) {
+
+  const [session] = useSession();
+  const { isHome } = useContext(SideBarContext);
+
   return (
-    <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
 
-    >
+    <div className='Main'>
+      {session ?
+        <ChallengesProvider
+          level={props.level}
+          currentExperience={props.currentExperience}
+          challengesCompleted={props.challengesCompleted}
 
-      <div className={styles.container}>
+        >
+          <SideBarProvider>
+            <div className={styles.container}>
+              <Head>
+                <title> Inicio | Move.it</title>
+              </Head>
 
+              <SideBar />
+              {!isHome ?     //AINDA NÃO SEI COMO MUDAR DE PAGINA E MANTER O VALOR DE ISHOME
+                <>
+                  <ExperienceBar />
+                  <CountdownProvider>
+                    <section>
+                      <div>
+                        <Profile />
+                        <CompletedChallenges />
+                        <Countdown />
+                      </div>
+                      <div>
+                        <ChallengeBox />
+                      </div>
+                    </section>
+                  </CountdownProvider>
+                </> :
+                <>
+                  <LeaderBoard />
+                </>
+              }
 
-        <head>
-          <title>Inicio | move.it</title>
-        </head>
-        <ExperienceBar />
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
             </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
-
-      </div>
-    </ChallengesProvider>
+          </SideBarProvider>
+        </ChallengesProvider>
+        :
+        <Login />
+      }
+    </div>
   )
 }
 

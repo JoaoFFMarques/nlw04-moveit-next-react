@@ -1,0 +1,57 @@
+.rankIcon{
+    position: absolute;    
+    right: 16px;    
+    top: 15px;
+
+    height: 18.67px;
+    width: 18.67px;
+
+    border: 3px solid var(--text);
+    border-radius: 20px;
+
+}
+
+.rankIconLeftFlag, .rankIconRightFlag{
+    position: absolute;
+    top: 13px;
+    
+    height: 13px;
+    width: 3px;
+
+    background-color: var(--text);
+    border-radius: 5px;
+    
+}
+
+.rankIconLeftFlag{    
+    left: 0px;
+    transform: rotate(12deg);
+}
+
+.rankIconRightFlag{
+    right: 0px;
+    transform: rotate(-12deg);
+}
+
+.rankIconLeftFlag::after, .rankIconRightFlag::before{
+    content: "";
+    position: absolute;
+    top: 8px;
+    
+    height: 3px;
+    width: 8.5px;
+
+    background-color: var(--text);
+    border-radius: 5px;
+
+}
+
+.rankIconLeftFlag::after{
+    left: 0px;
+    transform: rotate(-35deg);
+}
+
+.rankIconRightFlag::before{
+    right: 0px;
+    transform: rotate(35deg);
+}

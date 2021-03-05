@@ -9,7 +9,7 @@ const options = {
             clientSecret: process.env.GITHUB_SECRET
         }),
     ],
-    debug: process.env.NODE_ENV === 'development',
+
 }
 
 export default (req, res) => NextAuth(req, res, options

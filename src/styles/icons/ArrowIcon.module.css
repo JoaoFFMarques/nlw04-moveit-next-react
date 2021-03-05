@@ -1,0 +1,29 @@
+.arrowBody{
+    position: relative;
+    left: 24px;
+    
+    height: 3px;
+    width: 30px;
+    
+    background-color: #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+}
+
+.arrowBody::after, .arrowBody::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-color: #fff;
+  }
+  
+  .arrowBody::after {
+    top: -6.5px;
+    transform: rotate(45deg);
+  }
+  
+  .arrowBody::before {
+    top: 6.5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    transform: rotate(-45deg);
+  }
